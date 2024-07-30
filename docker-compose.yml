@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  diaristando-db:
+    container_name: diaristando-db
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: diaristando-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    networks:
+      - diaristando
+    ports:
+      - "5432:5432"
+
+networks:
+  diaristando:
+    driver: bridge
